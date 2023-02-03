@@ -9,7 +9,38 @@
     <link rel="stylesheet" href="./views/style.css">
     <title>To-Do-List</title>
 </head>
+<header>
+    <h1>My Awesome TO DO List</h1>
+</header>
 <body>
-    <h1>TO DO</h1>
+
+    <h2>TASK ENTRY</h2>
+
+    <ul class="input-wrapper">
+        <li class="input-row"> 
+            <label for="name">Task Name:</label>
+            <input type="text" id="name">
+        </li>
+        <li class="input-row">
+            <button>Submit</button>
+        </li>
+    </ul>
+
+
+    <section>
+        <h2 class="allTasks">TASKS</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Completed?</th>
+            </tr>
+          </thead>
+          <tbody id="viewTasks">
+          </tbody>
+        </table>
+      </section>
+
+
 </body>
 </html>
