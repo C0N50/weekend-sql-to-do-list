@@ -14,7 +14,7 @@ const pool = new pg.Pool({
 
 taskRouter.get("/", (req, res) => {
     let query = `
-    SELECT * FROM weekend-to-do-app
+    SELECT * FROM "tasks"
     ORDER BY name ASC;
     `;
     pool.query(query)
