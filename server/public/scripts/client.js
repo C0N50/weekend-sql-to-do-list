@@ -1,21 +1,31 @@
 console.log('initializing client...')
 
 //Gobal Variables
-tasks = [];     //array to hold data on the client side
-complete = '';  //changes true false to yes no.
-
+//tasks = [];     //array to hold data on the client side
+let complete = '';  //changes true false to yes no.
+let element;
 
 //initialize jquery
 $(document).ready(onReady);
 
 function onReady () {
 
+
     //event listeners
-    $(document  ).on("click", "#addbtn", addTask);
+    $(document).on("click", "#addbtn", addTask);
+    $(document).on("click", "#deletebtn", deleteTask);
+    $(document).on("click", ".pikachu", scrollUp);
+
 
     //get dynamic data
     getTasks();
 }
+
+function scrollUp() {
+        document.getElementById('title').scrollIntoView();
+}
+
+
 
 //add task with POST & INSERT
 function addTask() {
@@ -34,11 +44,30 @@ function addTask() {
     })
     .then ((response) => {
         console.log('POST response:', response);
+
         getTasks();
     })
     .catch ((error) => {
         console.log('POST unsuccessfull', error);
     })
+}
+
+function deleteTask() {
+    console.log('In deleteTask');
+
+    let id = $(this).parent('tr').data('id');
+
+    $.ajax ({
+        method: 'DELETE',
+        url: `/tasks/${id}`
+    })
+    .then (() => {
+        getTasks();
+    })
+    .catch ((error) => {
+        console.log('ERROR could not DELETE', error);
+    })
+
 }
 
 //Ajax GET call to server asking for Array of Task Objects
@@ -51,18 +80,21 @@ function getTasks() {
     })
     .then((response) => {
         console.log(response);
+        $('#iewTasks').empty();
         render(response);
+        document.getElementById('scrolltome').scrollIntoView();
     })
     .catch ((error) => {
         console.log('Error cannot GET tasks');
     })
+
 }
 
 function render(tasks) {
     console.log('In Render');
 
-    $('viewTasks').empty();
 
+    $('#viewTasks').empty();
     for (let i = 0; i < tasks.length; i ++) {
         let task = tasks[i];
         console.log(task);
@@ -75,13 +107,13 @@ function render(tasks) {
           }
 
         $('#viewTasks').append(`
-            <tr class="taskWrapper" data-id=${task.name} data-complete=${complete}>
-            <td class="taskList">
-            ${task.name}
-            </td>
-            <td class="taskList">
-            ${complete}
-            </td> 
+            <tr class="taskWrapper" data-id=${task.id} data-complete=${complete}>
+                <td id="deletebtn" class="taskList">
+                    ${task.name}
+                </td>
+                <td id="completebtn" class="taskList">
+                    ${complete}
+                </td> 
             </tr>
     `);
     }

@@ -49,4 +49,29 @@ taskRouter.post("/", (req, res) => {
         })
 })
 
+taskRouter.delete('/:id', (req, res) =>{
+
+    let taskID = req.params.id;
+    console.log('Deleteing task:', taskID);
+
+    let sqlQuery = `
+    DELETE FROM tasks
+    WHERE id = $1;
+    `;
+
+    const sqlParams = [
+        taskID
+    ];
+    pool.query(sqlQuery,sqlParams)
+    .then (() => {
+        console.log('task deleted');
+        res.sendStatus(204);
+    })
+    .catch ((error) => {
+        console.log('ERROR could not delete', error);
+        res.sendStatus(500);
+    })
+
+})
+
 module.exports = taskRouter;
