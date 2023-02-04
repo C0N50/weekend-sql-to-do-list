@@ -15,16 +15,29 @@ function onReady () {
     $(document).on("click", "#addbtn", addTask);
     $(document).on("click", "#deletebtn", deleteTask);
     $(document).on("click", ".pikachu", scrollUp);
+    $(document).on("click", ".squidward", scrollDown);
+    $(document).on("click", ".unicorn", scrollDown);
 
 
     //get dynamic data
     getTasks();
+
+    //reset page position to input
+    scrollUp();
 }
 
+//set position of page to beginning on reload or clicking pikachu
 function scrollUp() {
         document.getElementById('title').scrollIntoView();
 }
 
+//set position to newest item on list.
+function scrollDown() {
+    document.getElementById('scrolltome').scrollIntoView();
+}
+
+
+//clear input from text box
 function clearInput() {
     $('#name').attr('placeholder', 'Enter');
 }
@@ -47,8 +60,8 @@ function addTask() {
     })
     .then ((response) => {
         console.log('POST response:', response);
-
         getTasks();
+        scrollDown();
     })
     .catch ((error) => {
         console.log('POST unsuccessfull', error);
@@ -87,8 +100,7 @@ function getTasks() {
         $('#newTasks').empty();
         $('#name').val('');
         render(response);
-        clearInput();
-        document.getElementById('scrollmid').scrollIntoView();
+            clearInput();
     })
     .catch ((error) => {
         console.log('Error cannot GET tasks');
