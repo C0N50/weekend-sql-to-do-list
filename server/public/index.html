@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<div class="border"div>
+<div id="border"></div>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,19 +13,21 @@
     <link rel="stylesheet" href="./views/style.css">
     <title>To-Do-List</title>
 </head>
-<header>
-    <h1>DO TO DO TO</h1>
-    <div class = 'gif-wrapper'>
-    <img class="unicorn" src="./views/dancingunicorn.gif">
-    <img class="squidward" src="./views/squidward.gif">
-    <img class="squidward" src="./views/Umbreon.gif">
-    </div>
+<header id="title">
+    <h1><i>DO</i> TO <i>DO</i></h1>
 </header>
 <body>
+    <div class = 'gif-wrapper'>
+        <img class="unicorn" src="./views/dancingunicorn.gif">
+        <img class="squidward" src="./views/squidward.gif">
+        <img class="squidward"  class="input-row" src="./views/Umbreon.gif">
+        </div>
+        <span class = "colon">:</span>
+        <input rows="1" cols="25"  size="20" type="text" id="name"  placeholder="ENTER">
+        <!-- <button class="btn btn-success btn-lg" class="buttonCSS" id="addbtn">Submit</button> -->
     <ul class="input-wrapper">
         <li class="input-row"> 
-            <label class="taskNameCSS" for="name">Task:</label>
-            <input autofocus rows="1" cols="18"  size="20" type="text" id="name"  placeholder=""><!--</textarea>-->
+            <!--</textarea>-->
         </li>
         <li class="input-button">
             <div class="d-grid gap-2">
@@ -36,13 +38,13 @@
 
  
 
-    <section>
-        <h2 class="allTasks">TASKS</h2>
+    <section class="table-wrapper">
+        <h2 class="allTasks"><i>TASKS</i></h2>
         <table>
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Done?</th>
+              <th class="table-header">Name</th>
+              <th class="table-header">Done?</th>
             </tr>
           </thead>
           <tbody id="viewTasks">
@@ -50,7 +52,7 @@
         </table>
       </section>
 
-
+    <img class="pikachu" id="scrolltome" src="./views/rainbowpikachu.gif">
 
 <!-- Link In Bootsrap CSS -->
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
