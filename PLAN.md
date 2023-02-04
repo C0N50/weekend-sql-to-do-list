@@ -25,12 +25,12 @@
         - [x] Create query text
             - [x] Query text can be harcoded I think.
                 - [x] SELECT * FROM "tasks"
-        - [] call pool.queryText.then.catch code block
-    - [] POST -- link ajax post from client send new tasks to DB
-        - [] Create query text
-            - [] Takes query text from ajax post.
-                - [] INSERT INTO "tasks" (...) VALUES ...
-                - [] Use array with ($1 $2) to avoid injection
+        - [x] call pool.queryText.then.catch code block
+    - [x] POST -- link ajax post from client send new tasks to DB
+        - [x] Create query text
+            - [x] Takes query text from ajax post.
+                - [x] INSERT INTO "tasks" (...) VALUES ...
+                - [x] Use array with ($1 $2) to avoid injection
     - [] PUT -- updates to tasks "Ready for transfer" 
         - [] Create query text
             - [] Takes query text from ajax PUT.
