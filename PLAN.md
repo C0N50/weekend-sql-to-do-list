@@ -17,24 +17,24 @@
    - [x] Add code to SQL file in project
 
 - [] Router File
-    - [] DB CONNECTION
-        - [] import pg
-        - [] create pool object to export
-        - [] export/import pool object
-    - [] GET -- Link ajax Get from client to todo list from DB
-        - [] Create query text
-            - [] Query text can be harcoded I think.
-                - [] SELECT * FROM "koalas"
+    - [x] DB CONNECTION
+        - [x] import pg
+        - [x] create pool object to export
+        - [x] export/import pool object
+    - [x] GET -- Link ajax Get from client to todo list from DB
+        - [x] Create query text
+            - [x] Query text can be harcoded I think.
+                - [x] SELECT * FROM "tasks"
         - [] call pool.queryText.then.catch code block
-    - [] POST -- link ajax post from client send new koalas to DB
+    - [] POST -- link ajax post from client send new tasks to DB
         - [] Create query text
             - [] Takes query text from ajax post.
-                - [] INSERT INTO "koalas" (...) VALUES ...
+                - [] INSERT INTO "tasks" (...) VALUES ...
                 - [] Use array with ($1 $2) to avoid injection
-    - [] PUT -- updates to koalas "Ready for transfer" 
+    - [] PUT -- updates to tasks "Ready for transfer" 
         - [] Create query text
             - [] Takes query text from ajax PUT.
-                - [] UPDATE "koalas" SET "ready_to_transfer" = $1 WHERE "id" = $2
+                - [] UPDATE "tasks" SET "ready_to_transfer" = $1 WHERE "id" = $2
                 - [] Use array with ($1 $2) to avoid injection
 
 
@@ -42,10 +42,6 @@
 - [] HTTP API SERVER
 
 
-
-
-
-
-- [] CLIENT SIDE SETUP
-- [] SOURCE IN SCRIPTS CSS JQUERY
-- [] ON READY
+- [x] CLIENT SIDE SETUP
+- [x] SOURCE IN SCRIPTS CSS JQUERY
+- [x] ON READY

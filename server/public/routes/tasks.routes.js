@@ -13,11 +13,11 @@ const pool = new pg.Pool({
 });
 
 taskRouter.get("/", (req, res) => {
-    let query = `
-    SELECT * FROM "tasks"
+    let queryText = `
+    SELECT * FROM tasks
     ORDER BY name ASC;
     `;
-    pool.query(query)
+    pool.query(queryText)
     .then ((dbres) => {
         console.log('This is dbres', dbres);
         res.send(dbres.rows);
@@ -26,6 +26,27 @@ taskRouter.get("/", (req, res) => {
         console.log("Error SELECT failed", err);
         res.sendStatus(500);
     })
+})
+
+taskRouter.post("/", (req, res) => {
+
+    const newTask = req.body;
+    console.log(req.body);
+    const queryText = `
+    INSERT INTO tasks (name)
+    VALUES ($1)`;
+    const queryParams = [
+        newTask.name
+    ];
+    pool
+        .query(queryText, queryParams)
+        .then(() => {
+            res.sendStatus(204); //object created successfully
+        })
+        .catch ((error) => {
+            console.log('Error in server POST' , error)
+            res.sendStatus(500);
+        })
 })
 
 module.exports = taskRouter;

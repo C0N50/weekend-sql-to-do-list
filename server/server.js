@@ -7,7 +7,7 @@ const app = express();
 const taskRouter = require('./public/routes/tasks.routes');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('server/public'));
-
+    
 
 //set up router
 app.use("/tasks", taskRouter);
