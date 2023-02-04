@@ -25,6 +25,9 @@ function scrollUp() {
         document.getElementById('title').scrollIntoView();
 }
 
+function clearInput() {
+    $('#name').attr('placeholder', 'Enter');
+}
 
 
 //add task with POST & INSERT
@@ -63,6 +66,7 @@ function deleteTask() {
     })
     .then (() => {
         getTasks();
+
     })
     .catch ((error) => {
         console.log('ERROR could not DELETE', error);
@@ -80,14 +84,15 @@ function getTasks() {
     })
     .then((response) => {
         console.log(response);
-        $('#iewTasks').empty();
+        $('#newTasks').empty();
+        $('#name').val('');
         render(response);
-        document.getElementById('scrolltome').scrollIntoView();
+        clearInput();
+        document.getElementById('scrollmid').scrollIntoView();
     })
     .catch ((error) => {
         console.log('Error cannot GET tasks');
     })
-
 }
 
 function render(tasks) {
