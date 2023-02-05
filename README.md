@@ -1,12 +1,12 @@
 # Project Name
 
-To-Do List
+Do-To-Do List
 
 ## Description
 
-Building the to-do-list app started as a simple project with deadline and has ballooned to a borderline obscession to make this app actually exist in the wild.
+Building the Do-to-do app started as a simple project with deadline and has ballooned to a borderline obscession to make this app actually exist in the wild.
 
-The Program is aptly named. The page loads to an large text input with placeholder : ENTER. A user enters a task in text to the text input. The user then clicks the large submit button directly beneath the text input. 
+The page loads a large text input with placeholder : ENTER. A user enters a task in text to the text input. The user then clicks a large submit button directly beneath the text input. 
 
 Upon submission the task is sent to the server which then adds the task to a database. The task is then retrieved by the server and displayed in the application. The task is displayed in a table directly beneath the submit button.
 
