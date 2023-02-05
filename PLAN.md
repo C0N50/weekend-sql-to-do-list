@@ -10,6 +10,14 @@
         - [x] start script
         - [x] install express
 
+- [x] STATIC FILE SERVER
+- [x] HTTP API SERVER
+
+
+- [x] CLIENT SIDE SETUP
+- [x] SOURCE IN SCRIPTS CSS JQUERY
+- [x] ON READY
+
 
 - [x] Database Setup
    - [x] create database in positico "weekend-to-do-app"
@@ -31,17 +39,23 @@
             - [x] Takes query text from ajax post.
                 - [x] INSERT INTO "tasks" (...) VALUES ...
                 - [x] Use array with ($1 $2) to avoid injection
-    - [] PUT -- updates to tasks "Ready for transfer" 
-        - [] Create query text
-            - [] Takes query text from ajax PUT.
-                - [] UPDATE "tasks" SET "ready_to_transfer" = $1 WHERE "id" = $2
-                - [] Use array with ($1 $2) to avoid injection
+    - [x] PUT -- updates to tasks "Complete" 
+        - [x] Create query text
+            - [x] Takes query text from ajax PUT.
+                - [x] UPDATE "tasks" SET "NOT complete" WHERE "id" = $1
+                - [x] Use array with ($1) to avoid injection
+                - [x] Add CSS to reflect change on button
+
+    
+    - [] Stretch/Extra for Fun
+        - [] Deploy to cloud
+        - [] Add time to completetion
+        - [] Feature confirm delete
+
+                
 
 
-- [x] STATIC FILE SERVER
-- [] HTTP API SERVER
 
 
-- [x] CLIENT SIDE SETUP
-- [x] SOURCE IN SCRIPTS CSS JQUERY
-- [x] ON READY
+
+* When a Task is complete, its visual representation should change on the front end. For example, the background of the task container could change from gray to green. The complete option should be  'checked off'. Each of these are accomplished in CSS, but will need to hook into logic to know whether or not the task is complete.

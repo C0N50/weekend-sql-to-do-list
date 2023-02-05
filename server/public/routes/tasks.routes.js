@@ -12,6 +12,8 @@ const pool = new pg.Pool({
   port: 5432,
 });
 
+
+// GET -- retrieves task list
 taskRouter.get("/", (req, res) => {
     let queryText = `
     SELECT * FROM tasks
@@ -28,6 +30,7 @@ taskRouter.get("/", (req, res) => {
     })
 })
 
+// POST ---- adds new task
 taskRouter.post("/", (req, res) => {
 
     const newTask = req.body;
@@ -49,6 +52,8 @@ taskRouter.post("/", (req, res) => {
         })
 })
 
+
+// DELETE --- remove task from list
 taskRouter.delete('/:id', (req, res) =>{
 
     let taskID = req.params.id;
@@ -73,5 +78,29 @@ taskRouter.delete('/:id', (req, res) =>{
     })
 
 })
+
+//PUT - Update complete
+taskRouter.put("/:id", (req, res) => {
+    console.log("in router PUT");
+    console.log("putting with PARAMS", req.params);
+
+    const queryText = `
+        UPDATE tasks
+        SET complete = NOT complete
+        WHERE id = $1
+        `;
+
+    const queryParams = [req.params.id];
+    console.log("PUTTING with text:", queryText, "params:", queryParams);
+
+    pool.query(queryText, queryParams)
+    .then(() => {
+      res.sendStatus(204);
+    })
+    .catch((err) => {
+      console.log("error in server PUT:", err);
+    });
+})
+
 
 module.exports = taskRouter;
