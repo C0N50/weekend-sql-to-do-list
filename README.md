@@ -23,11 +23,3 @@ The Application uses a postgress database to store the data, which works fine wh
 An alpha version of the application is hosted on heroku , but does not connect to the database. Long term storage is not possible in this version of the application.
 
 I'm continueing to search for a database solution to make my first full stack web application in the wild a reality!
-
-
-
-
-
-
-
-I 
