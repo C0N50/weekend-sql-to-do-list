@@ -20,6 +20,8 @@ My Styling approach is that of a mobile/Phone Application. I wanted large friend
 
 The Application uses a postgress database to store the data, which works fine when connecting from the same host. However, it is entirely ineffective thus far at remote hosting. I'm been looking into how to make my postgress database accesible publically, but have been unsuccessfull.
 
-An alpha version of the application is hosted on heroku , but does not connect to the database. Long term storage is not possible in this version of the application.
+The application is hosted on heroku. 
 
-I'm continueing to search for a database solution to make my first full stack web application in the wild a reality!
+https://dotodo.herokuapp.com/
+
+The application contains long term storage with a database, but does not support multiple users. All users edit the same todo list.
